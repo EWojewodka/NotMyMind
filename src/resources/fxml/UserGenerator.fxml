@@ -9,27 +9,36 @@
 
 <AnchorPane minHeight="400" minWidth="800" stylesheets="@../css/application.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.wojewodka.bit.user.generator.UserGeneratorController">
    <children>
-      <TextField fx:id="name" layoutX="99.0" layoutY="39.0" prefHeight="21.0" prefWidth="160.0" styleClass="text-field" stylesheets="@../css/application.css" />
-      <Label layoutX="14.0" layoutY="39.0" prefHeight="23.0" prefWidth="68.0" styleClass="white-text" stylesheets="@../css/application.css" text="Name:" textFill="WHITE" />
-      <Label layoutX="14.0" layoutY="77.0" prefHeight="23.0" prefWidth="68.0" styleClass="white-text" stylesheets="@../css/application.css" text="Age:" textFill="WHITE" />
-      <Label fx:id="age" layoutX="165.0" layoutY="77.0" prefHeight="23.0" prefWidth="28.0" text="14" />
-      <Button fx:id="ageMinus" layoutX="124.0" layoutY="77.0" mnemonicParsing="false" onMouseClicked="#addOrRemoveAge" prefHeight="23.0" prefWidth="24.0" styleClass="age-button" stylesheets="@../css/application.css" text="-" />
-      <Button fx:id="agePlus" layoutX="200.0" layoutY="77.0" mnemonicParsing="false" onMouseClicked="#addOrRemoveAge" prefHeight="23.0" prefWidth="24.0" styleClass="age-button" stylesheets="@../css/application.css" text="+" />
+      <TextField fx:id="name" layoutX="215.0" layoutY="39.0" prefHeight="21.0" prefWidth="160.0" styleClass="text-field" stylesheets="@../css/application.css" />
+      <Label layoutX="14.0" layoutY="39.0" prefHeight="23.0" prefWidth="198.0" styleClass="white-text" stylesheets="@../css/application.css" text="%generator.name" textFill="WHITE" />
+      <Label layoutX="14.0" layoutY="77.0" prefHeight="23.0" prefWidth="191.0" styleClass="white-text" stylesheets="@../css/application.css" text="%generator.age" textFill="WHITE" />
+      <Label fx:id="age" layoutX="281.0" layoutY="77.0" prefHeight="23.0" prefWidth="28.0" text="14" />
+      <Button fx:id="ageMinus" layoutX="215.0" layoutY="77.0" mnemonicParsing="false" onMouseClicked="#addOrRemoveAge" prefHeight="23.0" prefWidth="24.0" styleClass="age-button" stylesheets="@../css/application.css" text="-" />
+      <Button fx:id="agePlus" layoutX="345.0" layoutY="77.0" mnemonicParsing="false" onMouseClicked="#addOrRemoveAge" prefHeight="23.0" prefWidth="24.0" styleClass="age-button" stylesheets="@../css/application.css" text="+" />
       <AnchorPane layoutX="417.0" layoutY="39.0" prefHeight="350.0" prefWidth="369.0" styleClass="user-stats-wrapper">
          <children>
-            <HBox layoutX="28.0" prefHeight="46.0" prefWidth="240.0">
+            <HBox layoutX="28.0" layoutY="14.0" prefHeight="15.0" prefWidth="335.0">
                <children>
-                  <Label prefHeight="44.0" prefWidth="100.0" text="Stamina" textFill="WHITE" />
+                  <Label prefHeight="44.0" prefWidth="202.0" text="%generator.stamina" textFill="WHITE" />
+                  <Button fx:id="staminaMinus" mnemonicParsing="false" onMouseClicked="#addOrRemoveValue" prefHeight="7.0" prefWidth="30.0" styleClass="age-button" stylesheets="@../css/application.css" text="-" />
+                  <Label fx:id="stamina" alignment="CENTER" prefHeight="42.0" prefWidth="59.0" text="14" textAlignment="JUSTIFY" />
+                  <Button fx:id="staminaPlus" mnemonicParsing="false" onMouseClicked="#addOrRemoveValue" prefHeight="0.0" prefWidth="30.0" styleClass="age-button" stylesheets="@../css/application.css" text="+" />
                </children>
             </HBox>
-            <HBox layoutX="28.0" layoutY="44.0" prefHeight="46.0" prefWidth="240.0">
+            <HBox layoutX="28.0" layoutY="44.0" prefHeight="23.0" prefWidth="335.0">
                <children>
-                  <Label prefHeight="44.0" prefWidth="100.0" text="Psyche" />
+                  <Label prefHeight="23.0" prefWidth="202.0" text="%generator.energy" />
+                  <Button fx:id="energyMinus" mnemonicParsing="false" onMouseClicked="#addOrRemoveValue" prefHeight="7.0" prefWidth="30.0" styleClass="age-button" stylesheets="@../css/application.css" text="-" />
+                  <Label fx:id="energy" alignment="CENTER" prefHeight="42.0" prefWidth="59.0" text="14" textAlignment="JUSTIFY" />
+                  <Button fx:id="energyPlus" mnemonicParsing="false" onMouseClicked="#addOrRemoveValue" prefHeight="0.0" prefWidth="30.0" styleClass="age-button" stylesheets="@../css/application.css" text="+" />
                </children>
             </HBox>
-            <HBox layoutX="28.0" layoutY="90.0" prefHeight="46.0" prefWidth="240.0">
+            <HBox layoutX="28.0" layoutY="75.0" prefHeight="23.0" prefWidth="335.0">
                <children>
-                  <Label prefHeight="44.0" prefWidth="100.0" text="Charisma" textFill="WHITE" />
+                  <Label prefHeight="23.0" prefWidth="202.0" text="%generator.charisma" textFill="WHITE" />
+                  <Button fx:id="charismaMinus" mnemonicParsing="false" onMouseClicked="#addOrRemoveValue" prefHeight="7.0" prefWidth="30.0" styleClass="age-button" stylesheets="@../css/application.css" text="-" />
+                  <Label fx:id="charisma" alignment="CENTER" prefHeight="42.0" prefWidth="59.0" text="14" textAlignment="JUSTIFY" />
+                  <Button fx:id="charismaPlus" mnemonicParsing="false" onMouseClicked="#addOrRemoveValue" prefHeight="0.0" prefWidth="30.0" styleClass="age-button" stylesheets="@../css/application.css" text="+" />
                </children>
             </HBox>
          </children>

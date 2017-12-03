@@ -1,7 +1,6 @@
 package com.wojewodka.bit.utils;
 
 import java.io.IOException;
-import java.nio.charset.StandardCharsets;
 import java.util.ResourceBundle;
 
 import com.wojewodka.bit.misc.CustomToolbar;
@@ -41,8 +40,7 @@ public class FXMLUtils {
 
 	public static void goTo(String sceneName, boolean withToolbar) {
 		try {
-			FXMLLoader loader = new FXMLLoader(StandardCharsets.UTF_8);
-			Parent root = loader.load(ResourcesUtils.getFxml(sceneName), ResourceBundle.getBundle("bundles.language", Internalization.getLangugage().getLocale()));
+			Parent root = FXMLLoader.load(ResourcesUtils.getFxml(sceneName), ResourceBundle.getBundle("bundles.language", Internalization.getLangugage().getLocale()));
 			Scene scene = new Scene(root);
 			addToolbar((Pane) root);
 			scene.getStylesheets().add(ResourcesUtils.getCss("application.css"));

@@ -10,7 +10,7 @@ public class Runnable extends Application {
 
 	private static Stage stage;
 	
-	private static final String START_SCENE = "Menu";
+	private static final String START_SCENE = "UserGenerator";
 
 	@Override
 	public void start(Stage primaryStage) {

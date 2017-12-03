@@ -13,8 +13,22 @@ public class CustomToolbar extends ToolBar {
 		setMinWidth(Runnable.getStage().getWidth());
 		setLayoutX(0);
 		idProperty().set("toolbar");
+		addBackButton();
 		addExitButton();
 		FXMLUtils.initDraggable(this, true);
+	}
+	
+	private void addBackButton() {
+		Button b = new Button();
+		b.setText("<");
+		b.setLayoutY(0);
+		b.toFront();
+		b.setId("toolbarCross");
+		b.setVisible(true);
+		b.setOnMouseClicked(e -> {
+			FXMLUtils.goTo("Menu", false);
+		});
+		getItems().add(b);
 	}
 
 	private void addExitButton() {

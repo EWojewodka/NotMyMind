@@ -50,6 +50,10 @@ label {
 	-fx-background-color: radial-gradient( focus-angle 5.0deg, focus-distance 0.0%, center 50.0% 50.0%, radius 100.0%, reflect, rgb(102.0,102.0,102.0) 0.0, rgb(0.0,0.0,0.0) 100.0 )
 }
 
+.menu-wrapper .language-wrapper {
+	-fx-background-color: transparent;
+}
+
 .menu-wrapper .language-button {
 	-fx-background-color: white;
 	-fx-max-width: 50px;
