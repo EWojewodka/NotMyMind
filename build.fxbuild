@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="ASCII"?>
+<anttasks:AntTask xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:anttasks="http://org.eclipse.fx.ide.jdt/1.0" buildDirectory="${project}/build">
+  <deploy packagingFormat="exe">
+    <application name="8bit" mainclass="com.wojewodka.bit.runnable.Runnable" version="Alpha" toolkit="fx"/>
+    <info title="EightBit" vendor="Wojewodka Emil"/>
+  </deploy>
+  <signjar/>
+  <fonts key="8bit" value="fonts/press start.ttf"/>
+</anttasks:AntTask>

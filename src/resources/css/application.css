@@ -1,0 +1,98 @@
+.scene {
+	-fx-font-family: 'Press Start 2P';
+}
+
+.white-text {
+	-fx-text-fill: white;
+}
+
+.black-text {
+	-fx-text-fill: black;
+}
+
+label {
+	-fx-text-fill: white;
+}
+
+
+/* === MENU SCENE === */
+.menu-wrapper #toolbar{
+	-fx-background-color: linear-gradient( from 100.0% 0.0% to 100.0% 100.0%, rgb(153.0,153.0,153.0) 0.0, rgb(0.0,0.0,0.0) 100.0);
+}
+
+.scene.menu-wrapper{
+	-fx-text-fill: white;
+}
+
+.menu-wrapper #toolbar #toolbarCross  {
+	-fx-background-color: transparent;
+	-fx-text-fill: white;
+	-fx-text-alignment: right;
+	-fx-font-size: 9.0px;
+	-fx-alignment: top-right; 	
+ }
+
+.menu-wrapper {
+	-fx-background-color: black;
+}
+
+.menu-wrapper .main-button {
+	-fx-border-width: 1.0px;
+	-fx-border-color: rgba(255.0,255.0,255.0,0.6);
+	-fx-border-radius: 3.0px;
+	-fx-background-color: radial-gradient( focus-angle 0.0deg, focus-distance 0.0%, center 50.0% 50.0%, radius 100.0%, rgb(77.0,77.0,77.0) 0.0, rgb(0.0,0.0,0.0) 100.0 );
+	-fx-text-fill: white;
+	-fx-alignment: center;
+}
+
+.menu-wrapper .main-button:pressed {
+	-fx-animated: true;
+	-fx-background-color: radial-gradient( focus-angle 5.0deg, focus-distance 0.0%, center 50.0% 50.0%, radius 100.0%, reflect, rgb(102.0,102.0,102.0) 0.0, rgb(0.0,0.0,0.0) 100.0 )
+}
+
+.menu-wrapper .language-button {
+	-fx-background-color: white;
+	-fx-max-width: 50px;
+	-fx-max-height: 25px;
+}
+
+/* === USER GENERATOR === */
+.user-generator-wrapper {
+	-fx-background-color: black;
+}
+
+.user-generator-wrapper #toolbar {
+		-fx-background-color: linear-gradient( from 100.0% 0.0% to 100.0% 100.0%, rgb(153.0,153.0,153.0) 0.0, rgb(0.0,0.0,0.0) 100.0);
+}
+
+.user-generator-wrapper #toolbar #toolbarCross {
+	-fx-background-color: transparent;
+	-fx-text-fill: white;
+	-fx-text-alignment: right;
+	-fx-font-size: 9.0px;
+	-fx-alignment: top-right; 	
+}
+
+.user-generator-wrapper .text-field {
+	-fx-background-color: transparent;
+	-fx-border-color: white;
+	-fx-border-radius: 2px;
+	-fx-text-fill: white;
+}
+
+.age-button {
+	-fx-text-fill: white;
+	-fx-background-color: transparent;
+	-fx-border-color: white;
+	-fx-border-radius: 2px;
+	-fx-border-width: 1px;
+}
+.user-generator-wrapper #age {
+	-fx-text-fill: white;
+}
+
+.user-stats-wrapper {
+	-fx-border-radius: 3px;	
+	-fx-border-color: white;
+	-fx-border-width: 1px;	
+}
