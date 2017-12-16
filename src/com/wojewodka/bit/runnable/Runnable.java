@@ -1,28 +1,34 @@
 package com.wojewodka.bit.runnable;
 
+import com.wojewodka.bit.property.PropertyFacade;
+import com.wojewodka.bit.utils.DevelopmentUtils;
 import com.wojewodka.bit.utils.FXMLUtils;
+import com.wojewodka.bit.utils.StageUtils;
 
 import javafx.application.Application;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
 
 public class Runnable extends Application {
 
 	private static Stage stage;
-	
-	private static final String START_SCENE = "UserGenerator";
+
+	private static final String START_SCENE = PropertyFacade.getStringProperty("stage.start", "Menu");
+
+	public static void main(String[] args) {
+		launch(args);
+	}
 
 	@Override
 	public void start(Stage primaryStage) {
-		primaryStage.setWidth(800);
-		primaryStage.setHeight(400);
-		primaryStage.setResizable(false);
-		primaryStage.initStyle(StageStyle.UNDECORATED);
-		primaryStage.setTitle("NotMyMind Alpha");
+		StageUtils.prepareStage(primaryStage);
 		setStage(primaryStage);
-
+		
+		if(PropertyFacade.getBoolProperty("development", false)) {
+			DevelopmentUtils.runDevelopmentTool();
+		}
+		
 		try {
-			FXMLUtils.goTo(START_SCENE);
+			FXMLUtils.goTo(START_SCENE, false);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -40,7 +46,4 @@ public class Runnable extends Application {
 		Runnable.stage = stage;
 	}
 
-	public static void main(String[] args) {
-		launch(args);
-	}
 }

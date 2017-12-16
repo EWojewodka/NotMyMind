@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane stylesheets="@../css/application.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.wojewodka.bit.loadsave.LoadController">
+	<children>
+      <Label fx:id="menuLogo" cache="true" layoutX="190.0" layoutY="14.0" onMouseEntered="#handleReflect" onMouseExited="#handleReflect" prefHeight="98.0" prefWidth="425.0" styleClass="logo" stylesheets="@../css/application.css" text="NotMyMind" textFill="WHITE" textOverrun="CENTER_WORD_ELLIPSIS" AnchorPane.bottomAnchor="288.0" AnchorPane.leftAnchor="190.0" AnchorPane.rightAnchor="185.0" AnchorPane.topAnchor="14.0">
+         <font>
+            <Font name="Press Start 2P" size="46.0" />
+         </font>
+         <effect>
+            <BoxBlur height="0.0" iterations="3" width="255.0" />
+         </effect>
+      </Label>
+      <ListView fx:id="saves" layoutX="14.0" layoutY="135.0" onKeyPressed="#selectNew" onKeyTyped="#selectNew" onMouseClicked="#selectNew" prefHeight="205.0" prefWidth="414.0" styleClass="saves-list-view" />
+      <ImageView fitHeight="151.0" fitWidth="310.0" layoutX="467.0" layoutY="135.0" pickOnBounds="true" preserveRatio="true" />
+      <Button fx:id="loadButton" alignment="CENTER" layoutX="674.0" layoutY="349.0" mnemonicParsing="false" onMouseEntered="#handleReflect" prefHeight="37.0" prefWidth="112.0" styleClass="main-button" text="%load.button" textAlignment="CENTER" />
+   </children>
+   <styleClass>
+      <String fx:value="menu-wrapper" />
+      <String fx:value="scene" />
+   </styleClass>
+</AnchorPane>

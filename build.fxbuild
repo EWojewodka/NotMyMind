@@ -6,4 +6,5 @@
   </deploy>
   <signjar/>
   <fonts key="8bit" value="fonts/press start.ttf"/>
+  <fonts key="FontAwesome" value="fonts/fontawesome-webfont.ttf"/>
 </anttasks:AntTask>

@@ -1,3 +1,8 @@
+@font-face {
+    font-family: FontAwesome;
+    src: url('/fonts/fontawesome-webfont.ttf');
+}
+
 .scene {
 	-fx-font-family: 'Press Start 2P';
 }
@@ -16,27 +21,39 @@ label {
 
 
 /* === MENU SCENE === */
-.menu-wrapper #toolbar{
+.toolbar{
 	-fx-background-color: linear-gradient( from 100.0% 0.0% to 100.0% 100.0%, rgb(153.0,153.0,153.0) 0.0, rgb(0.0,0.0,0.0) 100.0);
+	-fx-max-height: 18.0px;
+}
+
+.toolbar .toolbar-item {
+	-fx-text-fill: grey !important;
+	-fx-background-color: transparent;
+	-fx-font-size: 12.0px !important;
+	-fx-padding: 0.0 5.0px 0.0 5.0px;
+}
+
+.toolbar .toolbar-item:hover {
+	-fx-text-fill: snow !important;	
+}
+
+.icon {
+	-fx-font-family: 'FontAwesome';	
 }
 
 .scene.menu-wrapper{
 	-fx-text-fill: white;
 }
 
-.menu-wrapper #toolbar #toolbarCross  {
-	-fx-background-color: transparent;
-	-fx-text-fill: white;
-	-fx-text-alignment: right;
-	-fx-font-size: 9.0px;
-	-fx-alignment: top-right; 	
- }
+.toolbarCross  {
+	-fx-text-alignment: right !important;
+}
 
 .menu-wrapper {
 	-fx-background-color: black;
 }
 
-.menu-wrapper .main-button {
+.main-button {
 	-fx-border-width: 1.0px;
 	-fx-border-color: rgba(255.0,255.0,255.0,0.6);
 	-fx-border-radius: 3.0px;
@@ -45,7 +62,7 @@ label {
 	-fx-alignment: center;
 }
 
-.menu-wrapper .main-button:pressed {
+.main-button:pressed {
 	-fx-animated: true;
 	-fx-background-color: radial-gradient( focus-angle 5.0deg, focus-distance 0.0%, center 50.0% 50.0%, radius 100.0%, reflect, rgb(102.0,102.0,102.0) 0.0, rgb(0.0,0.0,0.0) 100.0 )
 }
@@ -56,8 +73,8 @@ label {
 
 .menu-wrapper .language-button {
 	-fx-background-color: white;
-	-fx-max-width: 50px;
-	-fx-max-height: 25px;
+	-fx-max-width: 50.0px;
+	-fx-max-height: 25.0px;
 }
 
 /* === USER GENERATOR === */
@@ -65,22 +82,10 @@ label {
 	-fx-background-color: black;
 }
 
-.user-generator-wrapper #toolbar {
-		-fx-background-color: linear-gradient( from 100.0% 0.0% to 100.0% 100.0%, rgb(153.0,153.0,153.0) 0.0, rgb(0.0,0.0,0.0) 100.0);
-}
-
-.user-generator-wrapper #toolbar #toolbarCross {
-	-fx-background-color: transparent;
-	-fx-text-fill: white;
-	-fx-text-alignment: right;
-	-fx-font-size: 9.0px;
-	-fx-alignment: top-right; 	
-}
-
 .user-generator-wrapper .text-field {
 	-fx-background-color: transparent;
 	-fx-border-color: white;
-	-fx-border-radius: 2px;
+	-fx-border-radius: 2.0px;
 	-fx-text-fill: white;
 }
 
@@ -88,15 +93,72 @@ label {
 	-fx-text-fill: white;
 	-fx-background-color: transparent;
 	-fx-border-color: white;
-	-fx-border-radius: 2px;
-	-fx-border-width: 1px;
+	-fx-border-radius: 2.0px;
+	-fx-border-width: 1.0px;
 }
 .user-generator-wrapper #age {
 	-fx-text-fill: white;
 }
 
 .user-stats-wrapper {
-	-fx-border-radius: 3px;	
+	-fx-border-radius: 3.0px;	
 	-fx-border-color: white;
+	-fx-border-width: 1.0px;	
+}
+
+.saves-list-view {
+	-fx-background-color: black;
+	-fx-border-color: white;
+	-fx-border-width: 1.0px;
+	-fx-border-radius: 3.0px;
+}
+
+.saves-list-view .list-cell:even {
+-fx-background-color: black;
+-fx-text-fill: white;
+}
+
+.saves-list-view .list-cell:odd {
+-fx-background-color: black;
+-fx-text-fill: white;
+}
+
+.saves-list-view .list-cell:selected {
+	-fx-background-color: white;
+	-fx-text-fill: black;
+} 
+
+.saves-list-view .scroll-bar {
+	-fx-background-color:transparent;
+	-fx-border-color:derive(gray,80.0%);
+}
+
+#saveRoot {
+	-fx-background-color: black;	
+}
+
+.simple-text-field {
+	-fx-background-color: rgba(255.0,255.0,255.0,0.2);
+	-fx-text-fill: snow;
+}
+
+.alert {
+	-fx-pref-width: 300.0px;
+	-fx-pref-height: 200.0px;	
+	-fx-font-family: 'Press Start 2P';
+}
+
+.overwrite-alert {
+	-fx-background-color: black;
+	-fx-border-color: white;
+	-fx-border-radius: 2px;
 	-fx-border-width: 1px;	
+}
+
+.overwrite-alert *.header-panel{
+	-fx-opacity: 0;
+}
+
+.overwrite-alert > *.label.content{
+	-fx-text-fill: white !important;
 }

@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
+import com.wojewodka.bit.property.PropertyFacade;
 import com.wojewodka.bit.utils.FXMLUtils;
 import com.wojewodka.bit.utils.ResourcesUtils;
 
@@ -46,7 +47,7 @@ public class Internalization {
 
 	}
 
-	private static Language currentLangugage = Language.ENGLISH;
+	private static Language currentLangugage = Language.findByShortcut(PropertyFacade.getStringProperty("lang", "en"));
 
 	public static Language getLangugage() {
 		return currentLangugage;
@@ -98,7 +99,7 @@ public class Internalization {
 			return;
 		}
 		Internalization.setLangugage(newLanguage);
-		FXMLUtils.goTo("Menu");
+		FXMLUtils.goTo("Menu", false);
 	}
 
 }

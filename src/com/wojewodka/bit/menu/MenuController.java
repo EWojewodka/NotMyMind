@@ -1,11 +1,13 @@
-package com.wojewodka.bit.runnable;
+package com.wojewodka.bit.menu;
 
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
 
 import com.wojewodka.bit.misc.Internalization;
+import com.wojewodka.bit.runnable.Runnable;
 import com.wojewodka.bit.utils.FXMLUtils;
+import com.wojewodka.bit.utils.RegionUtils;
 import com.wojewodka.bit.utils.ResourcesUtils;
 
 import javafx.animation.KeyFrame;
@@ -16,7 +18,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.effect.BoxBlur;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -46,11 +47,15 @@ public class MenuController implements Initializable {
 
 	public void handleReflect(MouseEvent e) {
 		Region source = (Region) e.getSource();
-		FXMLUtils.handleReflect(source);
+		RegionUtils.handleReflect(source);
 	}
 
 	public void startNewGame() {
 		FXMLUtils.goTo("UserGenerator");
+	}
+	
+	public void loadGame() {
+		FXMLUtils.goTo("Load");
 	}
 
 	public void exit(MouseEvent e) {
@@ -58,10 +63,7 @@ public class MenuController implements Initializable {
 	}
 
 	public void prepareLogo() {
-		Timeline t = new Timeline();
-		t.getKeyFrames().add(
-				new KeyFrame(Duration.millis(1000), new KeyValue(((BoxBlur) menuLogo.getEffect()).widthProperty(), 0)));
-		t.play();
+		RegionUtils.prepareLogo(menuLogo);
 	}
 
 	public void toggleOtherLanguage() {

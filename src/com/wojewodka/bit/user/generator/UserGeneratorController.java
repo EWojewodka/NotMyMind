@@ -3,8 +3,12 @@ package com.wojewodka.bit.user.generator;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import com.wojewodka.bit.runnable.Runnable;
+import com.wojewodka.bit.controller.core.Changeable;
+import com.wojewodka.bit.misc.toolbar.ToolbarListener;
 import com.wojewodka.bit.user.User;
+import com.wojewodka.bit.user.UserUtils;
+import com.wojewodka.bit.utils.ControllerUtils;
+import com.wojewodka.bit.utils.StageUtils;
 import com.wojewodka.bit.utils.StringUtils;
 
 import javafx.fxml.FXML;
@@ -13,9 +17,13 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 
-public class UserGeneratorController implements Initializable {
+public class UserGeneratorController implements Initializable, ToolbarListener, Changeable {
 
+	@FXML
+	private AnchorPane userGeneratorRoot;
+	
 	@FXML
 	private TextField name;
 
@@ -36,7 +44,7 @@ public class UserGeneratorController implements Initializable {
 
 	@FXML
 	private Label energy;
-	
+
 	private User user;
 
 	public void addOrRemoveAge(MouseEvent e) {
@@ -49,10 +57,8 @@ public class UserGeneratorController implements Initializable {
 		if (!needAdd && currentAge <= 13)
 			return;
 
-		int newAge = currentAge + (needAdd ? 1 : -1);
+		int newAge = needAdd ? ++currentAge : --currentAge;
 		age.setText(String.valueOf(newAge));
-		user.setAge(newAge);
-		Runnable.getStage().setUserData(user);
 	}
 
 	public void addOrRemoveValue(MouseEvent e) {
@@ -70,9 +76,7 @@ public class UserGeneratorController implements Initializable {
 			parentId = buttonId.substring(0, buttonId.length() - 5);
 		}
 
-		Label[] changeableLabels = new Label[] {stamina, charisma, energy };
-
-		for (Label l : changeableLabels) {
+		for (Label l : getLabels()) {
 			String labelId = l.getId();
 
 			if (StringUtils.isEmpty(labelId)) {
@@ -82,6 +86,7 @@ public class UserGeneratorController implements Initializable {
 			if (labelId.equalsIgnoreCase(parentId)) {
 				int value = Integer.valueOf(l.getText());
 				value = (add) ? ++value : --value;
+
 				l.setText(String.valueOf(value));
 			}
 		}
@@ -89,9 +94,38 @@ public class UserGeneratorController implements Initializable {
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		User userData = (User) Runnable.getStage().getUserData();
-		this.user = (userData == null) ? new User() : (User) userData;
-		
+		ControllerUtils.setController(this);
+		user = UserUtils.getUser();
+		if (user == null) {
+			user = new User();
+			StageUtils.addToGampeplayData("user", user);
+		} else {
+			UserUtils.copyValueToController(user);
+		}
+	}
+
+	@Override
+	public Label[] getLabels() {
+		return new Label[] { stamina, charisma, energy, age };
+	}
+
+	@Override
+	public TextField[] getTextFields() {
+		return new TextField[] { name };
+	}
+
+	@Override
+	public void onBack() {
+		UserUtils.copyValueToUser(user);
+		StageUtils.addToGampeplayData("user", user);
+		ToolbarListener.super.onBack();
+	}
+
+	@Override
+	public void onSave() {
+		UserUtils.copyValueToUser(user);
+		StageUtils.addToGampeplayData("user", user);
+		ToolbarListener.super.onSave();
 	}
 
 }

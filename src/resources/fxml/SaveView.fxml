@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane fx:id="saveRoot" minHeight="400" minWidth="800" stylesheets="@../css/application.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.wojewodka.bit.loadsave.SaveController">
+	<children>
+      <Label fx:id="menuLogo" cache="true" layoutX="190.0" layoutY="14.0" onMouseEntered="#handleReflect" onMouseExited="#handleReflect" prefHeight="98.0" prefWidth="425.0" styleClass="logo" stylesheets="@../css/application.css" text="NotMyMind" textFill="WHITE" textOverrun="CENTER_WORD_ELLIPSIS" AnchorPane.bottomAnchor="288.0" AnchorPane.leftAnchor="190.0" AnchorPane.rightAnchor="185.0" AnchorPane.topAnchor="14.0">
+         <font>
+            <Font name="Press Start 2P" size="46.0" />
+         </font>
+         <effect>
+            <BoxBlur height="0.0" iterations="3" width="255.0" />
+         </effect>
+      </Label>
+      <ListView fx:id="saves" editable="true" layoutX="14.0" layoutY="135.0" onKeyTyped="#selectNew" onMouseClicked="#selectNew" prefHeight="205.0" prefWidth="414.0" styleClass="saves-list-view" />
+      <ImageView fitHeight="151.0" fitWidth="310.0" layoutX="467.0" layoutY="135.0" pickOnBounds="true" preserveRatio="true" />
+      <TextField layoutX="14.0" layoutY="316.0" prefHeight="24.0" prefWidth="414.0" styleClass="simple-text-field" fx:id="newSaveName"/>
+      <Button fx:id="saveButton" alignment="CENTER" layoutX="674.0" layoutY="349.0" mnemonicParsing="false" onMouseClicked="#save" onMouseEntered="#handleReflect" prefHeight="37.0" prefWidth="112.0" styleClass="main-button" text="%save.button" textAlignment="CENTER" />
+   </children>
+   <styleClass>
+      <String fx:value="menu-wrapper" />
+      <String fx:value="scene" />
+   </styleClass>
+</AnchorPane>

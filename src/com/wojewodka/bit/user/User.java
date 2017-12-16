@@ -1,63 +1,54 @@
 package com.wojewodka.bit.user;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.Set;
 
-public class User {
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
 
-	private Date created = new Date();
+import com.wojewodka.bit.misc.Nodeable;
 
-	private int age;
+public class User implements Nodeable{
 
-	private String name;
+	private Map<String, Object> fields = new HashMap<>();
 
-	private int stamina;
-
-	private int energy;
-
-	private int charisma;
-
-	public int getStamina() {
-		return stamina;
+	public User() {
+		fields.put("created", new SimpleDateFormat("yyyy-MM-dd HH:mm").format(new Date()));
 	}
 
-	public void setStamina(int stamina) {
-		this.stamina = stamina;
+	public void setField(String name, String value) {
+		fields.put(name, value);
 	}
 
-	public int getEnergy() {
-		return energy;
+	public Object getField(String name) {
+		return fields.get(name);
 	}
 
-	public void setEnergy(int energy) {
-		this.energy = energy;
+	public Map<String, Object> getFields() {
+		return fields;
 	}
 
-	public int getCharisma() {
-		return charisma;
-	}
+	@Override
+	public Element toNode(Document doc) {
+		Element userElement = doc.createElement("User");
 
-	public void setCharisma(int charisma) {
-		this.charisma = charisma;
-	}
+		if (fields.size() == 0) {
+			return userElement;
+		}
 
-	public void setAge(int age) {
-		this.age = age;
-	}
+		Set<String> keys = fields.keySet();
+		Iterator<String> it = keys.iterator();
+		while (it.hasNext()) {
+			String key = it.next();
+			Element fieldElement = doc.createElement(key);
+			fieldElement.setTextContent((String) fields.get(key));
+			userElement.appendChild(fieldElement);
+		}
 
-	public void setName(String name) {
-		this.name = name;
+		return userElement;
 	}
-
-	public Date getCreated() {
-		return created;
-	}
-
-	public int getAge() {
-		return age;
-	}
-
-	public String getName() {
-		return name;
-	}
-
 }

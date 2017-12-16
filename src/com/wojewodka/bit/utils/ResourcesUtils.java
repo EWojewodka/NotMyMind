@@ -11,7 +11,11 @@ public class ResourcesUtils {
 		path = (path.startsWith("/")) ? path.substring(1, path.length()) : path;
 		path = (path.endsWith(extension)) ? path : path + extension;
 
-		return ResourcesUtils.class.getClassLoader().getResource(path);
+		URL resource = ResourcesUtils.class.getClassLoader().getResource(path);
+		if (resource == null) {
+			resource = ResourcesUtils.class.getClass().getClassLoader().getResource(path);
+		}
+		return resource;
 	}
 
 	public static URL getImage(String path, String extension) {

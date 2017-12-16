@@ -9,8 +9,9 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import com.wojewodka.bit.misc.toolbar.CustomToolbar?>
 
-<AnchorPane stylesheets="@../css/application.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.wojewodka.bit.runnable.MenuController">
+<AnchorPane stylesheets="@../css/application.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.wojewodka.bit.menu.MenuController">
    <children>
       <Label fx:id="menuLogo" cache="true" layoutX="190.0" layoutY="14.0" onMouseEntered="#handleReflect" onMouseExited="#handleReflect" prefHeight="98.0" prefWidth="425.0" styleClass="logo" stylesheets="@../css/application.css" text="NotMyMind" textFill="WHITE" textOverrun="CENTER_WORD_ELLIPSIS" AnchorPane.bottomAnchor="288.0" AnchorPane.leftAnchor="190.0" AnchorPane.rightAnchor="185.0" AnchorPane.topAnchor="14.0">
          <font>
@@ -21,7 +22,7 @@
          </effect>
       </Label>
       <Button fx:id="startButton" contentDisplay="CENTER" layoutX="296.0" layoutY="112.0" mnemonicParsing="false" onMouseClicked="#startNewGame" onMouseEntered="#handleReflect" onMouseExited="#handleReflect" prefHeight="32.0" prefWidth="213.0" styleClass="main-button" stylesheets="@../css/application.css" text="%menu.start" textAlignment="CENTER" visible="true" AnchorPane.bottomAnchor="256.0" AnchorPane.leftAnchor="296.0" AnchorPane.rightAnchor="291.0" />
-      <Button fx:id="loadButton" contentDisplay="CENTER" layoutX="296.0" layoutY="158.0" mnemonicParsing="false" onMouseEntered="#handleReflect" onMouseExited="#handleReflect" prefHeight="32.0" prefWidth="213.0" styleClass="main-button" stylesheets="@../css/application.css" text="%menu.load" textAlignment="CENTER" visible="true" AnchorPane.bottomAnchor="210.0" AnchorPane.leftAnchor="296.0" AnchorPane.rightAnchor="291.0" />
+      <Button fx:id="loadButton" contentDisplay="CENTER" layoutX="296.0" layoutY="158.0" mnemonicParsing="false" onMouseClicked="#loadGame" onMouseEntered="#handleReflect" onMouseExited="#handleReflect" prefHeight="32.0" prefWidth="213.0" styleClass="main-button" stylesheets="@../css/application.css" text="%menu.load" textAlignment="CENTER" visible="true" AnchorPane.bottomAnchor="210.0" AnchorPane.leftAnchor="296.0" AnchorPane.rightAnchor="291.0" />
       <Button fx:id="exitButton" contentDisplay="CENTER" layoutX="294.0" layoutY="313.0" mnemonicParsing="false" onMouseClicked="#exit" onMouseEntered="#handleReflect" onMouseExited="#handleReflect" prefHeight="0.0" prefWidth="213.0" styleClass="main-button" stylesheets="@../css/application.css" text="%menu.exit" textAlignment="CENTER" visible="true" AnchorPane.bottomAnchor="64.0" AnchorPane.leftAnchor="296.0" AnchorPane.rightAnchor="293.0" />
       <ImageView fx:id="languageFlags" fitHeight="32.0" fitWidth="60.0" layoutX="742.0" layoutY="354.0" onMouseClicked="#toggleOtherLanguage" pickOnBounds="true" preserveRatio="true" styleClass="language-button" AnchorPane.bottomAnchor="5.0" AnchorPane.rightAnchor="5.0">
          <image>

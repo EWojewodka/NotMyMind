@@ -1,6 +1,5 @@
 package com.wojewodka.bit.utils;
 
-
 public class StringUtils {
 
 	public static boolean isEmpty(String value) {
@@ -35,6 +34,36 @@ public class StringUtils {
 		}
 
 		return result;
+	}
+
+	public static String stringValue(Object value, String defaultValue) {
+		String v = value.toString();
+		if (v instanceof String)
+			return v;
+
+		if (isEmpty(v))
+			return defaultValue;
+
+		return null;
+	}
+
+	public static boolean boolValue(Object value, boolean defaultValue) {
+		if (value == null)
+			return defaultValue;
+
+		if (value instanceof Boolean)
+			return (boolean) value;
+
+		if (value instanceof String) {
+			String v = (String) value;
+			if (v.equalsIgnoreCase("true") || v.equals("1"))
+				return true;
+
+			if (v.equalsIgnoreCase("false") || v.equals("0"))
+				return false;
+		}
+
+		return defaultValue;
 	}
 
 	/**
